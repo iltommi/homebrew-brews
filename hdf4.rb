@@ -6,7 +6,7 @@ class Hdf4 < Formula
   revision 3
 
   bottle do
-	root_url "https://github.com/iltommi/homebrew-brews/releases/download/latest/hdf4-4.2.13_3.sierra.bottle.tar.gz"
+	root_url "https://github.com/iltommi/homebrew-brews/releases/download/latest"
     sha256 "51d8d8d9eec66ac81b6e1f79c6355fb0f4d89d7edd9724b69e46b7c7bb7937a9" => :sierra
   end
 
