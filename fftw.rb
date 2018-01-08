@@ -6,7 +6,7 @@ class Fftw < Formula
 
   bottle do
     root_url "https://github.com/iltommi/homebrew-brews/releases/download/latest"
-    sha256 "f8d47233c389c34a26bb3cbdbad81d8abcdd6dd43425f238379a686a3929f3f5" => :sierra
+    sha256 "9850065d6e200e1bb59d5ca5ff905bb9e301db3087396bb5c53670bc9d66f882" => :sierra
   end
 
   option "with-mpi", "Enable MPI parallel transforms"
@@ -28,4 +28,4 @@ class Fftw < Formula
     system "make", "install"
   end
 end
-Z
+
