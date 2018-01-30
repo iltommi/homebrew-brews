@@ -11,7 +11,7 @@ class Fftw < Formula
 
   option "with-mpi", "Enable MPI parallel transforms"
 
-  depends_on :mpi => [:cc, :optional]
+  depends_on "open-mpi"
   depends_on "gcc"
 
   def install
