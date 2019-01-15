@@ -5,11 +5,6 @@ class Hdf4 < Formula
   sha256 "55d3a42313bda0aba7b0463687caf819a970e0ba206f5ed2c23724f80d2ae0f3"
   revision 3
 
-  bottle do
-    root_url "https://github.com/iltommi/homebrew-brews/releases/download/latest"
-    sha256 "51d8d8d9eec66ac81b6e1f79c6355fb0f4d89d7edd9724b69e46b7c7bb7937a9" => :sierra
-  end
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "szip"
