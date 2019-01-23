@@ -21,7 +21,7 @@ class Gnuplot < Formula
   depends_on "qt"
   depends_on "readline"
   depends_on "wxmac"
-#   depends_on "x11"
+  depends_on :x11 => :optional
 
   needs :cxx11
 
