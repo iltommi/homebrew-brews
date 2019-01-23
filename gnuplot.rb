@@ -21,6 +21,7 @@ class Gnuplot < Formula
   depends_on "qt"
   depends_on "readline"
   depends_on "wxmac"
+  depends_on "x11"
 
   needs :cxx11
 
@@ -35,7 +36,7 @@ class Gnuplot < Formula
       --with-readline=#{Formula["readline"].opt_prefix}
       --without-tutorial
       --with-qt=qt5
-      --without-x
+      --with-x
       --with-wx=#{Formula["wxmac"].opt_prefix}/bin/
     ]
 
