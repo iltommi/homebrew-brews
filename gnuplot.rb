@@ -21,7 +21,7 @@ class Gnuplot < Formula
   depends_on "qt"
   depends_on "readline"
   depends_on "wxmac"
-  depends_on :x11 => :optional
+  depends_on :x11
 
   needs :cxx11
 
@@ -35,11 +35,11 @@ class Gnuplot < Formula
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
       --without-tutorial
-      --with-qt=qt5
-      --without-x
+      --with-qt=qt5  
+      --with-x11
       --with-wx=#{Formula["wxmac"].opt_prefix}/bin/
     ]
-
+    
     system "./prepare" if build.head?
     system "./configure", *args
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
