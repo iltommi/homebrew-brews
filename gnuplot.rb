@@ -5,13 +5,6 @@ class Gnuplot < Formula
   sha256 "35dd8f013139e31b3028fac280ee12d4b1346d9bb5c501586d1b5a04ae7a94ee"
   revision 1
 
-  bottle do
-    rebuild 1
-    sha256 "47903eca8637b8de9b803932795fe9dec4a45df4ea8ab61c51e2692501edce03" => :mojave
-    sha256 "24a6c735fb69f8f7f016cf4ecadbe8d11022523c9d7160ef03160f41bf117aa7" => :high_sierra
-    sha256 "5ef8fe2bebfcc2232f8ee414f0ce0c6b13482e212938d041dc55db7ea139eb10" => :sierra
-  end
-
   head do
     url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
 
