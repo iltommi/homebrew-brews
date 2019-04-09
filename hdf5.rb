@@ -8,6 +8,7 @@ class Hdf5 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
   depends_on "szip"
 
   def install
@@ -21,6 +22,13 @@ class Hdf5 < Formula
 
     system "autoreconf", "-fiv"
 
+    ENV["CC"] = "mpicc"
+    ENV["CXX"] = "mpicxx"
+    ENV["FC"] = "mpif90"
+    ENV["OMPI_CXX"] = "g++-#{Formula["gcc"].version_suffix}"
+    ENV["OMPI_C"] = "gcc-#{Formula["gcc"].version_suffix}"
+    ENV["OMPI_FC"] = "gfortran-#{Formula["gcc"].version_suffix}"
+    
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
@@ -28,8 +36,6 @@ class Hdf5 < Formula
       --with-szlib=#{Formula["szip"].opt_prefix}
       --enable-build-mode=production
       --enable-parallel
-      CC=/usr/local/bin/mpicc
-      FC=/usr/local/bin/mpif90
     ]
 
     system "./configure", *args
