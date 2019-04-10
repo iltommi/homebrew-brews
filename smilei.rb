@@ -3,18 +3,14 @@ class Smilei < Formula
   homepage "https://github.com/SmileiPIC/Smilei"
   head "https://github.com/SmileiPIC/Smilei.git"
 
-  depends_on "gcc"
-  depends_on "libomp"
   depends_on "python"
-  depends_on "open-mpi"
   depends_on "hdf5-parallel"
-  depends_on "autoconf"
+  depends_on "sphinx"
    
   env :std
     
   def install
 #     ENV["OMPI_CXX"] = "g++-#{Formula["gcc"].version_suffix}"
-    ENV.deparallelize
     ENV.permit_arch_flags
     ENV['OMPI_CXX'] = "g++-8"
     ENV["PYTHONEXE"] = "python3"
@@ -26,9 +22,36 @@ class Smilei < Formula
     ENV["CFLAGS"] = ""
     ENV["LDFLAGS"] = ""
     
-    system "make config=verbose"
+    ENV["PYTHONHOME"] = nil
+    ENV["PYTHONPATH"] = nil
+    
+    system "make"
+    system "make", "doc"
+    
     bin.install "smilei"
     bin.install "smilei_test"
+    share.install "build/html"
+
+  end
+  def caveats
+    <<~EOS
     
+        Smilei executables are in the path, sources are located in ~/Library/Caches/Homebrew/smilei--git
+        
+        Documentation can be opened with
+        open /usr/local/opt/smilei/share/html/index.html
+        
+        To install the happi post-processing module type
+        make -C ~/Library/Caches/Homebrew/smilei--git happi
+        
+        
+        To keep up-to date Smilei with just type
+        brew upgrade
+        Plese note that changes in ~/Library/Caches/Homebrew/smilei--git will be overwritten.
+        
+        If  you need to make changes to the code, please consider 
+        forking the project on GitHub https://github.com/SmileiPIC/Smilei
+        
+    EOS
   end
 end
