@@ -27,8 +27,8 @@ class Hdf5Parallel < Formula
     ENV["CC"] = "mpicc"
     ENV["CXX"] = "mpicxx"
     ENV["FC"] = "mpif90"
-    ENV["OMPI_CXX"] = "g++-#{Formula["gcc"].version_suffix}"
     ENV["OMPI_C"] = "gcc-#{Formula["gcc"].version_suffix}"
+    ENV["OMPI_CXX"] = "g++-#{Formula["gcc"].version_suffix}"
     ENV["OMPI_FC"] = "gfortran-#{Formula["gcc"].version_suffix}"
     
     args = %W[
