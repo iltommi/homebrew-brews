@@ -43,6 +43,11 @@ class Smilei < Formula
     share.install "build/html"
 
   end
+  
+  test do
+    system "mpirun", "-np", "2", "./smilei", "benchmarks/tst1d_00_em_propagation.py"
+  end
+  
   def caveats
     <<~EOS
     
@@ -55,7 +60,7 @@ class Smilei < Formula
         make -C ~/Library/Caches/Homebrew/smilei--git happi
         
         To update Smilei just type
-        brew upgrade
+        brew upgrade --fetch-HEAD smilei
         
         Plese note that changes in ~/Library/Caches/Homebrew/smilei--git will be overwritten.
         
