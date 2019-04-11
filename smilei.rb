@@ -9,6 +9,15 @@ class Smilei < Formula
    
   env :std
     
+  build.head? do
+    reason <<~EOS
+      Smilei needs the Apple Command Line Tools to be installed.
+        You can install them, if desired, with:
+          xcode-select --install
+    EOS
+    satisfy { MacOS::CLT.installed? }
+  end
+
   def install
 #     ENV["OMPI_CXX"] = "g++-#{Formula["gcc"].version_suffix}"
     ENV.permit_arch_flags
@@ -26,10 +35,11 @@ class Smilei < Formula
     ENV["PYTHONPATH"] = nil
     
     system "make"
-    system "make", "doc"
     
     bin.install "smilei"
     bin.install "smilei_test"
+
+    system "make", "doc"
     share.install "build/html"
 
   end
@@ -44,9 +54,9 @@ class Smilei < Formula
         To install the happi post-processing module type
         make -C ~/Library/Caches/Homebrew/smilei--git happi
         
-        
-        To keep up-to date Smilei with just type
+        To update Smilei just type
         brew upgrade
+        
         Plese note that changes in ~/Library/Caches/Homebrew/smilei--git will be overwritten.
         
         If  you need to make changes to the code, please consider 
