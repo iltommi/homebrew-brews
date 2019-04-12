@@ -20,25 +20,18 @@ class Smilei < Formula
   end
 
   def install
-#     ENV["OMPI_CXX"] = "g++-#{Formula["gcc"].version_suffix}"
     ENV.permit_arch_flags
-    ENV['OMPI_CXX'] = "g++-8"
     ENV["PYTHONEXE"] = "python3"
     ENV["HDF5_ROOT_DIR"] = "#{Formula["hdf5-parallel"].opt_prefix}"
     ENV["CXX"] = "mpicxx"
-    
-    ENV["PYTHONHOME"] = nil
-    ENV["PYTHONPATH"] = nil
+    ENV['OMPI_CXX'] = ENV["OBJCXX"]
     
     system "make"
-    
     bin.install "smilei"
     bin.install "smilei_test"
 
     system "make", "doc"
     share.install "build/html"
-
-    system "make", "happi"
 
   end
   
