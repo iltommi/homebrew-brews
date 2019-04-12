@@ -6,7 +6,8 @@ class Smilei < Formula
   depends_on "python"
   depends_on "hdf5-parallel"
   depends_on "sphinx"
-   
+  
+  fails_with :clang
   env :std
     
   build.head? do
@@ -25,11 +26,6 @@ class Smilei < Formula
     ENV["PYTHONEXE"] = "python3"
     ENV["HDF5_ROOT_DIR"] = "#{Formula["hdf5-parallel"].opt_prefix}"
     ENV["CXX"] = "mpicxx"
-    ENV["HOMEBREW_CXX"] = "g++-8"
-    ENV["HOMEBREW_CC"] = "gcc-8"
-    ENV["CXXFLAGS"] = ""
-    ENV["CFLAGS"] = ""
-    ENV["LDFLAGS"] = ""
     
     ENV["PYTHONHOME"] = nil
     ENV["PYTHONPATH"] = nil
@@ -41,6 +37,8 @@ class Smilei < Formula
 
     system "make", "doc"
     share.install "build/html"
+
+    system "make", "happi"
 
   end
   
