@@ -22,6 +22,7 @@ class Smilei < Formula
   def install
     ENV.permit_arch_flags
     ENV["PYTHONEXE"] = "python3"
+    ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
     ENV["HDF5_ROOT_DIR"] = "#{Formula["hdf5-parallel"].opt_prefix}"
     ENV["CXX"] = "mpicxx"
     ENV['OMPI_CXX'] = ENV["OBJCXX"]
@@ -32,6 +33,14 @@ class Smilei < Formula
 
     system "make", "doc"
     share.install "build/html"
+    share.install "benchmarks"
+    
+    libexec.install "happi"
+    (libexec/"src").install "src/Python"
+    xy = Language::Python.major_minor_version "python3"
+    site_packages = "lib/python#{xy}/site-packages"
+    pth_contents = "import site; site.addsitedir('#{libexec}')\n"
+    (prefix/site_packages/"smilei.pth").write pth_contents
 
   end
   
@@ -42,22 +51,15 @@ class Smilei < Formula
   def caveats
     <<~EOS
     
-        Smilei executables are in the path, sources are located in ~/Library/Caches/Homebrew/smilei--git
+        To install the happi post-processing dependencies, type
+        pip3 install numpy ipython h5py pint matplotlib scipy
         
         Documentation can be opened with
         open /usr/local/opt/smilei/share/html/index.html
         
-        To install the happi post-processing module type
-        make -C ~/Library/Caches/Homebrew/smilei--git happi
-        
         To update Smilei just type
         brew upgrade --fetch-HEAD smilei
-        
-        Plese note that changes in ~/Library/Caches/Homebrew/smilei--git will be overwritten.
-        
-        If  you need to make changes to the code, please consider 
-        forking the project on GitHub https://github.com/SmileiPIC/Smilei
-        
+
     EOS
   end
 end
