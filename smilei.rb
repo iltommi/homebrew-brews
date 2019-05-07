@@ -35,7 +35,6 @@ end
     share.install "benchmarks"
     
     libexec.install "happi"
-    libexec.install "makefile"
     (libexec/"src").install "src/Python"
     (prefix/"lib/python#{Language::Python.major_minor_version ENV["PYTHONEXE"]}/site-packages/smilei.pth").write "import site; site.addsitedir('#{libexec}')\n"
 
