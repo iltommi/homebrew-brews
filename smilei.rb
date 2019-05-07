@@ -3,9 +3,7 @@ class Smilei < Formula
   homepage "https://github.com/SmileiPIC/Smilei"
   head "https://github.com/SmileiPIC/Smilei.git"
 
-if OS.mac?
   depends_on "python"
-end
   depends_on "hdf5-parallel"
   
   fails_with :clang
