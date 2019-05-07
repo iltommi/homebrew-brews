@@ -3,7 +3,9 @@ class Smilei < Formula
   homepage "https://github.com/SmileiPIC/Smilei"
   head "https://github.com/SmileiPIC/Smilei.git"
 
+if OS.mac?
   depends_on "python"
+end
   depends_on "hdf5-parallel"
   
   fails_with :clang
@@ -33,6 +35,7 @@ class Smilei < Formula
     share.install "benchmarks"
     
     libexec.install "happi"
+    libexec.install "makefile"
     (libexec/"src").install "src/Python"
     (prefix/"lib/python#{Language::Python.major_minor_version ENV["PYTHONEXE"]}/site-packages/smilei.pth").write "import site; site.addsitedir('#{libexec}')\n"
 
