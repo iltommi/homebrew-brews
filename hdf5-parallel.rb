@@ -9,7 +9,10 @@ class Hdf5Parallel < Formula
   depends_on "cmake" => :build
   depends_on "open-mpi"
   depends_on "szip"
-
+  
+  fails_with :clang
+  env :std
+  
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DHDF5_ENABLE_PARALLEL=ON", "-DHDF5_BUILD_CPP_LIB=OFF"
