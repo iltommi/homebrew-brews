@@ -15,7 +15,6 @@ class GnuplotMulti < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libcerf"
-  depends_on "lua"
   depends_on "pango"
   depends_on "wxmac"
 
@@ -26,6 +25,9 @@ class GnuplotMulti < Formula
       --prefix=#{prefix}
       --without-tutorial
       --with-wx=#{Formula["wxmac"].opt_prefix}/bin/
+      --with-qt=no 
+      --without-x 
+      --without-lua
     ]
     
     system "./prepare" if build.head?
