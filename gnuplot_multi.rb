@@ -1,23 +1,18 @@
 class GnuplotMulti < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.6/gnuplot-5.2.6.tar.gz"
-  sha256 "35dd8f013139e31b3028fac280ee12d4b1346d9bb5c501586d1b5a04ae7a94ee"
-  revision 1
+  head "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
 
-  head do
-    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   depends_on "pkg-config" => :build
-  depends_on "libcerf"
   depends_on "pango"
   depends_on "wxmac"
 
+  keg_only "it conflicts with gnuplot package"
+  
   def install
     args = %W[
       --disable-dependency-tracking
@@ -25,14 +20,17 @@ class GnuplotMulti < Formula
       --prefix=#{prefix}
       --without-tutorial
       --with-wx=#{Formula["wxmac"].opt_prefix}/bin/
+      --with-readline=builtin
       --with-qt=no 
-      --without-x 
+      --without-x
+      --without-gd
       --without-lua
+      --without-libcerf
+      --without-cairo
     ]
     
-    system "./prepare" if build.head?
+    system "./prepare"
     system "./configure", *args
-    ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
     system "make", "install"
   end
