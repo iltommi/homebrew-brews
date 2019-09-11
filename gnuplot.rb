@@ -17,7 +17,7 @@ class Gnuplot < Formula
   depends_on "gd"
   depends_on "libcerf"
   depends_on "lua"
-  depends_on "iltommi/brews/pango"
+  depends_on "pango"
   depends_on "qt"
   depends_on "readline"
   depends_on "wxmac"
