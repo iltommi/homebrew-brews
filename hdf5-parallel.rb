@@ -9,6 +9,7 @@ class Hdf5Parallel < Formula
   depends_on "cmake" => :build
   depends_on "open-mpi"
   depends_on "szip"
+  depends_on "gcc"
   
   fails_with :clang
   env :std
