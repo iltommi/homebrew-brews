@@ -16,7 +16,7 @@ class Hdf5ParallelFortran < Formula
   
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DHDF5_ENABLE_PARALLEL=ON", "-DHDF5_BUILD_CPP_LIB=OFF", "-DHDF5_BUILD_FORTRAN=ON"
+      system "cmake", "..", *std_cmake_args, "-DHDF5_ENABLE_PARALLEL:BOOL=ON", "-DHDF5_BUILD_CPP_LIB:BOOL=OFF", "-DHDF5_BUILD_FORTRAN:BOOL=ON"
       system "make", "install"
     end
   end
