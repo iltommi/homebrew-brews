@@ -1,5 +1,8 @@
 os: osx
+osx_image: xcode11
 language: objective-c
+before_install:
+  - brew upgrade >/dev/null
 script:
 #  - brew audit pango.rb && brew install -v pango.rb && brew test pango
 #  - brew audit fftw.rb && brew install -v fftw.rb && brew test fftw
@@ -8,4 +11,4 @@ script:
 #  - brew audit hdf4.rb && brew install -v hdf4.rb && brew test hdf4
   - brew audit hdf5-parallel.rb && brew install -v hdf5-parallel.rb && brew test hdf5-parallel
 #  - brew install --head -v gnuplot_multi.rb && brew test gnuplot_multi
-  - brew install --head -v smilei.rb && brew test smilei
+#  - brew install --head -v smilei.rb && brew test smilei
