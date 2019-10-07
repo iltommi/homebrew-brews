@@ -1,8 +1,5 @@
 os: osx
-osx_image: xcode11
 language: objective-c
-before_install:
-  - brew update >/dev/null
 script:
 #  - brew audit pango.rb && brew install -v pango.rb && brew test pango
 #  - brew audit fftw.rb && brew install -v fftw.rb && brew test fftw
