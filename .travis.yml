@@ -11,7 +11,7 @@ script:
   - brew audit pango.rb
   - brew install -v fftw.rb
   - brew install -v gnuplot.rb
-  - brew install -v gnuplot_multi.rb
+  - brew install --head -v gnuplot_multi.rb
   - brew install -v hdf4.rb
   - brew install -v hdf5-parallel.rb
   - brew install -v pango.rb

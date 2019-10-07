@@ -6,7 +6,7 @@ class Hdf5Parallel < Formula
 
   keg_only "it conflicts with hdf5 package"
 
-  depends_on "cmake" => :build
+  depends_on "cmake"
   depends_on "gcc"
   depends_on "open-mpi"
   depends_on "szip"
