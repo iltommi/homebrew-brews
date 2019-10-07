@@ -1,4 +1,5 @@
 os: osx
+osx_image: xcode11
 language: objective-c
 before_install:
   - brew update >/dev/null
