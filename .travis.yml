@@ -3,16 +3,16 @@ language: objective-c
 before_install:
   - brew update >/dev/null
 script:
+  - brew audit pango.rb
   - brew audit fftw.rb
   - brew audit gnuplot.rb
   - brew audit gnuplot_multi.rb
   - brew audit hdf4.rb
   - brew audit hdf5-parallel.rb
-  - brew audit pango.rb
+  - brew install -v pango.rb
   - brew install -v fftw.rb
   - brew install -v gnuplot.rb
   - brew install --head -v gnuplot_multi.rb
   - brew install -v hdf4.rb
   - brew install -v hdf5-parallel.rb
-  - brew install -v pango.rb
   - brew test ./*.rb
