@@ -11,8 +11,8 @@ class Fftw < Formula
 
   option "with-mpi", "Enable MPI parallel transforms"
 
-  depends_on "open-mpi"
   depends_on "gcc"
+  depends_on "open-mpi"
 
   def install
     args = ["--enable-shared",

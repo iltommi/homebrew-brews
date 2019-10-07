@@ -3,6 +3,8 @@ class GnuplotMulti < Formula
   homepage "http://www.gnuplot.info/"
   head "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
 
+  keg_only "it conflicts with gnuplot package"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -10,8 +12,6 @@ class GnuplotMulti < Formula
   depends_on "pkg-config" => :build
   depends_on "pango"
   depends_on "wxmac"
-
-  keg_only "it conflicts with gnuplot package"
   
   def install
     args = %W[

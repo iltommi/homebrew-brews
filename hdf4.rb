@@ -7,8 +7,8 @@ class Hdf4 < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "szip"
   depends_on "jpeg"
+  depends_on "szip"
 
   # redefine library name to "df" from "hdf".  this seems to be an artifact
   # of using cmake that needs to be corrected for compatibility with
