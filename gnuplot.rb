@@ -39,6 +39,7 @@ class Gnuplot < Formula
     ]
     
     system "./prepare" if build.head?
+    system "./configure", "--help"
     system "./configure", *args
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
