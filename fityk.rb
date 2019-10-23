@@ -14,7 +14,6 @@ class Fityk < Formula
   depends_on "gnuplot" => :optional
 
   def install
-    system "env"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
