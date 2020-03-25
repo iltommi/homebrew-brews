@@ -1,7 +1,7 @@
 class GnuplotMulti < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
+  head "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
 
   keg_only "it conflicts with gnuplot package"
 
