@@ -8,7 +8,7 @@ class Fityk < Formula
   depends_on "boost" => :build
   depends_on "lua"
   depends_on "zlib"
-  depends_on "xylib"
+  depends_on "iltommi/brews/xylib"
   depends_on "wxWidgets"
   depends_on "readline" => :recommended
   depends_on "gnuplot" => :optional
