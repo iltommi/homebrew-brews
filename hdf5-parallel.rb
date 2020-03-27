@@ -1,14 +1,8 @@
 class Hdf5Parallel < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.bz2"
-  sha256 "68d6ea8843d2a106ec6a7828564c1689c7a85714a35d8efafa2fee20ca366f44"
-
-  bottle do
-    cellar :any
-    root_url "https://github.com/iltommi/homebrew-brews/releases/download/latest"
-    sha256 "3c92b11b3455dfd55112c48cb9fb3267f682048e84d7c30c29563b09d7790d51" => :mojave
-  end
+  url "https://www.hdfgroup.org/package/hdf5-1-12-0-tar-bz2/?wpdmdl=14584"
+  sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
 
   keg_only "it conflicts with hdf5 package"
 
