@@ -1,9 +1,9 @@
 class Hdf4 < Formula
   desc "HDF version 4"
   homepage "https://www.hdfgroup.org"
-  url "https://support.hdfgroup.org/ftp/HDF/HDF_Current/src/hdf-4.2.13.tar.bz2"
-  sha256 "55d3a42313bda0aba7b0463687caf819a970e0ba206f5ed2c23724f80d2ae0f3"
-  revision 3
+  url "https://support.hdfgroup.org/ftp/HDF/releases/HDF4.2.15/src/hdf-4.2.15.tar.bz2"
+  sha256 "bde035ef5a1cd5fdbd0a7f1fa5c17e98bbd599300189ac4d234f16e9bb7bcb12"
+  revision 4
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
