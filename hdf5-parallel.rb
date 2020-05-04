@@ -1,7 +1,7 @@
 class Hdf5Parallel < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://www.hdfgroup.org/package/hdf5-1-12-0-tar-bz2/?wpdmdl=14584"
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
   sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
 
   keg_only "it conflicts with hdf5 package"
