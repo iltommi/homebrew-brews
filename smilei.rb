@@ -31,7 +31,6 @@ class Smilei < Formula
     bin.install "smilei_test"
 
     share.install "benchmarks"
-    share.install "databases"
     
     libexec.install "happi"
     (libexec/"src").install "src/Python"

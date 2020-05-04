@@ -12,8 +12,10 @@ class GnuplotMulti < Formula
   depends_on "pkg-config" => :build
   depends_on "pango"
   depends_on "wxmac"
+  depends_on "qt"
   
   def install
+    ENV.cxx11
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
@@ -21,13 +23,14 @@ class GnuplotMulti < Formula
       --without-tutorial
       --with-wx=#{Formula["wxmac"].opt_prefix}/bin/
       --with-readline=builtin
-      --with-qt=no 
       --without-x
       --without-gd
       --without-lua
       --without-libcerf
       --without-cairo
     ]
+    
+    system "sed -i '' 's/define\ GP_CAIRO_SCALE\ 20/define\ GP_CAIRO_SCALE\ 1/g' ./src/wxterminal/gp_cairo.h"
     
     system "./prepare"
     system "./configure", *args
