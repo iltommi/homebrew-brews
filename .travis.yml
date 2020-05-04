@@ -10,4 +10,4 @@ script:
   - brew install hdf4.rb
   - brew install hdf5-parallel.rb
   - brew install --head -v gnuplot_multi.rb && brew test gnuplot_multi
-#  - brew install --head -v smilei.rb
+  - brew install --head -v smilei.rb
