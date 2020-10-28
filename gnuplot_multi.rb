@@ -25,12 +25,11 @@ class GnuplotMulti < Formula
       --with-readline=builtin
       --without-x
       --without-gd
+      --without-qt
       --without-lua
       --without-libcerf
       --without-cairo
     ]
-    
-    system "sed -i '' 's/define\ GP_CAIRO_SCALE\ 20/define\ GP_CAIRO_SCALE\ 1/g' ./src/wxterminal/gp_cairo.h"
     
     system "./prepare"
     system "./configure", *args
