@@ -7,7 +7,6 @@ class Hdf5Parallel < Formula
 
   keg_only "it conflicts with hdf5 package"
 
-  depends_on "cmake"
   depends_on "gcc"
   depends_on "open-mpi"
   depends_on "szip"
@@ -23,17 +22,10 @@ class Hdf5Parallel < Formula
     ENV["OMPI_FC"] = "gfortran"
     ENV["FC"] = "mpif90"
     
-    args = %W[
-      -DHDF5_ENABLE_PARALLEL=ON
-      -DHDF5_BUILD_CPP_LIB=OFF
-      -DHDF5_BUILD_FORTRAN=ON
-      -DCMAKE_BUILD_TYPE=Release
-    ]
-    
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args , *args
-      system "make", "install"
-    end
+    system "./configure", "--enable-parallel",
+                          "--enable-fortran",
+                          "--prefix=#{prefix}"
+    system "make", "install"    
   end
   
 end
