@@ -22,6 +22,7 @@ class Hdf5Parallel < Formula
     ENV["OMPI_FC"] = "gfortran"
     ENV["FC"] = "mpif90"
     
+    system "env"
     system "./configure", "--enable-parallel",
                           "--enable-fortran",
                           "--prefix=#{prefix}"
