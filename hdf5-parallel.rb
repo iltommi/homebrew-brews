@@ -25,7 +25,6 @@ class Hdf5Parallel < Formula
     
     args = %W[
       -DHDF5_ENABLE_PARALLEL=ON
-      -DBUILD_STATIC_LIBS=OFF
       -DHDF5_BUILD_CPP_LIB=OFF
       -DHDF5_BUILD_FORTRAN=ON
       -DCMAKE_BUILD_TYPE=Release
