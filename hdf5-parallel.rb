@@ -9,7 +9,7 @@ class Hdf5Parallel < Formula
 
   depends_on "gcc"
   depends_on "open-mpi"
-  depends_on "szip"
+  depends_on "libaec"
   
   fails_with :clang
   env :std
@@ -26,6 +26,8 @@ class Hdf5Parallel < Formula
     system "./configure", "--enable-parallel",
                           "--enable-fortran",
                           "--prefix=#{prefix}"
+                          "--with-szlib=#{Formula["libaec"].opt_prefix}"
+    
     system "make", "install"    
   end
   
