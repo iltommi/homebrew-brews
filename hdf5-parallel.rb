@@ -25,7 +25,7 @@ class Hdf5Parallel < Formula
     system "env"
     system "./configure", "--enable-parallel",
                           "--enable-fortran",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
                           "--with-szlib=#{Formula["libaec"].opt_prefix}"
     
     system "make", "install"    
