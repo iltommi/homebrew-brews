@@ -8,7 +8,7 @@ class Hdf4 < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "jpeg"
-  depends_on "szip"
+  depends_on "libaec"
 
   # redefine library name to "df" from "hdf".  this seems to be an artifact
   # of using cmake that needs to be corrected for compatibility with
@@ -31,6 +31,7 @@ class Hdf4 < Formula
       "-DHDF4_ENABLE_SZIP_SUPPORT=ON",
       "-DHDF4_ENABLE_Z_LIB_SUPPORT=ON",
       "-DHDF4_BUILD_FORTRAN=OFF",
+      "-DSZIP_DIR=#{Formula["libaec"].opt_prefix}",
     ]
 
     mkdir "build" do
