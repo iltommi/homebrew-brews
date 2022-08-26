@@ -16,7 +16,7 @@ class Hdf5Parallel < Formula
   
   def install
     ENV["OMPI_CXX"] = ENV["CXX"]
-    ENV["CXX"] = "mpicxx"
+    ENV["CXX"] = "mpic++"
     ENV["OMPI_CC"] = ENV["CC"]
     ENV["CC"] = "mpicc"
     ENV["OMPI_FC"] = "gfortran"
