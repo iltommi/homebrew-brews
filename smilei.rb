@@ -24,7 +24,7 @@ class Smilei < Formula
     ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
     ENV["HDF5_ROOT_DIR"] = "#{Formula["hdf5-parallel"].opt_prefix}"
     ENV["OMPI_CXX"] = ENV["CXX"]
-    ENV["CXX"] = "mpicxx"
+    ENV["CXX"] = "mpic++"
     
     system "make"
     bin.install "smilei"
