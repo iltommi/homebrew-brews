@@ -9,7 +9,6 @@ class Hdf4 < Formula
   depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "libaec"
-  depends_on "libomp"
 
   # redefine library name to "df" from "hdf".  this seems to be an artifact
   # of using cmake that needs to be corrected for compatibility with
