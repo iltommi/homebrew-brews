@@ -4,6 +4,7 @@ class Smilei < Formula
   head "https://github.com/SmileiPIC/Smilei.git"
 
   depends_on "python"
+  depends_on "numpy"
   depends_on "hdf5-parallel"
   
   fails_with :clang
@@ -20,11 +21,11 @@ class Smilei < Formula
 
   def install
     ENV.permit_arch_flags
-    ENV["PYTHONEXE"] = "python3"
-    ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
+    ENV["PYTHONEXE"] = "#{Formula["python"].opt_bin}/python3"
+    ENV["PYTHONPATH"] = lib/"python3/site-packages"
     ENV["HDF5_ROOT_DIR"] = "#{Formula["hdf5-parallel"].opt_prefix}"
-    ENV["OMPI_CXX"] = ENV["CXX"]
-    ENV["CXX"] = "mpic++"
+    ENV["OMPI_CXX"] = "#{Formula["gcc"].opt_bin}/g++-#{Formula["gcc"].any_installed_version.major}"
+    ENV["CXX"] = "#{Formula["open-mpi"].opt_prefix}/bin/mpic++"
     
     system "make"
     bin.install "smilei"
