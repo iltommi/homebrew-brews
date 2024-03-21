@@ -1,19 +1,14 @@
 class Hdf4 < Formula
   desc "HDF version 4"
   homepage "https://www.hdfgroup.org"
-  url "https://support.hdfgroup.org/ftp/HDF/releases/HDF4.2.15/src/hdf-4.2.15.tar.bz2"
-  sha256 "bde035ef5a1cd5fdbd0a7f1fa5c17e98bbd599300189ac4d234f16e9bb7bcb12"
+  url "https://github.com/HDFGroup/hdf4/releases/download/hdf4.3.0/hdf4.3.0.tar.gz"
+  sha256 "282b244a819790590950f772095abcaeef405b0f17d2ee1eb5039da698cf938b"
   revision 4
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "libaec"
-
-  # redefine library name to "df" from "hdf".  this seems to be an artifact
-  # of using cmake that needs to be corrected for compatibility with
-  # anything depending on hdf4.
-  patch :DATA
 
   def install
     ENV["SZIP_INSTALL"] = HOMEBREW_PREFIX
@@ -35,7 +30,6 @@ class Hdf4 < Formula
     ]
 
     mkdir "build" do
-      system "sed -i -e '195,200d' ../CMakeInstallation.cmake"
       system "cmake", "..", *args
       system "make", "install"
 
@@ -45,16 +39,3 @@ class Hdf4 < Formula
     end
   end
 end
-
-__END__
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -119,7 +119,7 @@ mark_as_advanced (HDF4_NO_PACKAGES)
- #-----------------------------------------------------------------------------
- # Set the core names of all the libraries
- #-----------------------------------------------------------------------------
--set (HDF4_SRC_LIB_CORENAME          "hdf")
-+set (HDF4_SRC_LIB_CORENAME          "df")
- set (HDF4_SRC_FCSTUB_LIB_CORENAME   "hdf_fcstub")
- set (HDF4_SRC_FORTRAN_LIB_CORENAME  "hdf_fortran")
- set (HDF4_MF_LIB_CORENAME           "mfhdf")
