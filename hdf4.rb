@@ -30,6 +30,7 @@ class Hdf4 < Formula
     ]
 
     mkdir "build" do
+      system "sed -i -e '186,191d' ../CMakeInstallation.cmake"
       system "cmake", "..", *args
       system "make", "install"
 
