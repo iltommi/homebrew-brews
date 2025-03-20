@@ -5,7 +5,7 @@ class Smilei < Formula
 
   depends_on "python"
   depends_on "numpy"
-  depends_on "hdf5-parallel"
+  depends_on "hdf5-mpi"
   
   fails_with :clang
   env :std
@@ -23,7 +23,7 @@ class Smilei < Formula
     ENV.permit_arch_flags
     ENV["PYTHONEXE"] = "#{Formula["python"].opt_bin}/python3"
     ENV["PYTHONPATH"] = lib/"python3/site-packages"
-    ENV["HDF5_ROOT_DIR"] = "#{Formula["hdf5-parallel"].opt_prefix}"
+    ENV["HDF5_ROOT_DIR"] = "#{Formula["hdf5-mpi"].opt_prefix}"
     ENV["OMPI_CXX"] = "#{Formula["gcc"].opt_bin}/g++-#{Formula["gcc"].any_installed_version.major}"
     ENV["CXX"] = "#{Formula["open-mpi"].opt_prefix}/bin/mpic++"
     
