@@ -1,8 +1,8 @@
 class Clfft < Formula
   desc "FFT functions written in OpenCL"
   homepage "https://github.com/iltommi/clFFT"
-  url "https://github.com/iltommi/clFFT/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "41773a4f7fb74b0ff4374d45a845aaea5581b54738e96c06cfbd8247f2d52a92"
+  url "https://github.com/iltommi/clFFT/archive/refs/tags/v3.0.1.tar.gz"
+  sha256 "e846139e127e6a6d62cfc2d2d6fa49b9b4b61769b9060cdcfe9a0012ee4da9fb"
   license "Apache-2.0"
 
   depends_on "boost" => :build
